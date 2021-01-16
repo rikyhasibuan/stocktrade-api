@@ -12,9 +12,10 @@ exports.stock = function(req, res) {
     dayjs.extend(timezone)
 
     let symbol = req.params.symbol;
+    let resolution = req.params.resolution;
     let from = 1420088400
     let to = dayjs().locale('id').tz('Asia/Jakarta').unix()
-    axios.get(`https://analytics2.rti.co.id/tview/rti_history.jsp?symbol=${symbol}&resolution=W&from=${from}&to=${to}`)
+    axios.get(`https://analytics2.rti.co.id/tview/rti_history.jsp?symbol=${symbol}&resolution=${resolution}&from=${from}&to=${to}`)
     .then((resp) => {
         res.json(resp.data)
     })
@@ -33,27 +34,29 @@ exports.stocks = function(req, res) {
     dayjs.extend(timezone)
 
     let stock_data = [
-        'BBCA', 'BJTM', 'SIDO', 'TLKM', 'ITMG',
-        'BBRI', 'ICBP', 'ULTJ', 'UNVR', 'ADRO', 
-        'BBNI', 'ACES', 'ASII', 'PWON', 'ANTM',
-        'BMRI', 'EKAD', 'INDF', 'PTBA', 'TINS',
-        'BRIS', 'SMRA', 'ADHI', 'KAEF', 'MYOR',
-        'CPIN', 'BTPS', 'PGAS', 'TKIM', 'BJBR',
-        'AKRA', 'ASRI', 'BBTN', 'BKSL', 'BSDE',
-        'ELSA', 'EXCL', 'GGRM', 'HMSP', 'INCO',
-        'INDY', 'INKP', 'INTP', 'JSMR', 'KLBF',
-        'LPKR', 'LPPF', 'MEDC', 'MNCN', 'PTPP',
-        'SCMA', 'SMGR', 'SRIL', 'SSMS', 'TPIA',
-        'UNTR', 'WIKA', 'WSBP', 'WSKT'
+        'AALI', 'ACES', 'ADRO', 'AKRA', 'ANTM',
+        'APLN', 'ASII', 'BBCA', 'BBNI', 'BBRI', 
+        'BBTN', 'BDMN', 'BJBR', 'BJTM', 'BMRI',
+        'BMTR', 'BNLI', 'BRIS', 'BSDE', 'BTPS',
+        'BULL', 'CLEO', 'CPIN', 'CTRA', 'DMAS',
+        'ELSA', 'ERAA', 'EXCL', 'HOKI', 'ICBP', 
+        'INCO', 'INDF', 'INKP', 'INTP', 'ISAT', 
+        'ITMG', 'JPFA', 'JSMR', 'KAEF', 'KLBF', 
+        'LINK', 'LSIP', 'MAIN', 'MAPI', 'MDKA', 
+        'MEDC', 'MIKA', 'MNCN', 'MTDL', 'MYOR', 
+        'PGAS', 'PTBA', 'PTPP', 'PTPP', 'RALS', 
+        'SIDO', 'SMRA', 'TINS', 'TKIM', 'TLKM', 
+        'UNTR', 'UNVR', 'WIKA', 'WOOD', 'WTON'
     ]
 
     let from = 1420088400
     let to = dayjs().locale('id').tz('Asia/Jakarta').unix()
+    let resolution = req.params.resolution;
     let price = []
     let promises = []
     for (let i = 0; i < stock_data.length; i++) {
         promises.push(
-            axios.get(`https://analytics2.rti.co.id/tview/rti_history.jsp?symbol=${stock_data[i]}&resolution=W&from=${from}&to=${to}`)
+            axios.get(`https://analytics2.rti.co.id/tview/rti_history.jsp?symbol=${stock_data[i]}&resolution=${resolution}&from=${from}&to=${to}`)
             .then((resp) => {
                 price.push({ 'stock':stock_data[i], 'ohlc': resp.data })
             })
