@@ -34,19 +34,16 @@ exports.stocks = function(req, res) {
     dayjs.extend(timezone)
 
     let stock_data = [
-        'AALI', 'ACES', 'ADRO', 'AKRA', 'ANTM',
-        'APLN', 'ASII', 'BBCA', 'BBNI', 'BBRI', 
-        'BBTN', 'BDMN', 'BJBR', 'BJTM', 'BMRI',
-        'BMTR', 'BNLI', 'BRIS', 'BSDE', 'BTPS',
-        'BULL', 'CLEO', 'CPIN', 'CTRA', 'DMAS',
-        'ELSA', 'ERAA', 'EXCL', 'HOKI', 'ICBP', 
-        'INCO', 'INDF', 'INKP', 'INTP', 'ISAT', 
-        'ITMG', 'JPFA', 'JSMR', 'KAEF', 'KLBF', 
-        'LINK', 'LSIP', 'MAIN', 'MAPI', 'MDKA', 
-        'MEDC', 'MIKA', 'MNCN', 'MTDL', 'MYOR', 
-        'PGAS', 'PTBA', 'PTPP', 'PTPP', 'RALS', 
-        'SIDO', 'SMRA', 'TINS', 'TKIM', 'TLKM', 
-        'UNTR', 'UNVR', 'WIKA', 'WOOD', 'WTON'
+        'ACES', 'ADRO', 'AKRA', 'ANTM', 'ASII', 
+        'BBCA', 'BBNI', 'BBRI', 'BBTN', 'BJBR', 
+        'BJTM', 'BMRI', 'BMTR', 'BNLI', 'BRIS', 
+        'BSDE', 'BTPS', 'CPIN', 'CTRA', 'ELSA', 
+        'ERAA', 'EXCL', 'ICBP', 'INCO', 'INDF', 
+        'INKP', 'INTP', 'ITMG', 'JPFA', 'JSMR', 
+        'KAEF', 'KLBF', 'MDKA', 'MIKA', 'MNCN', 
+        'PGAS', 'PTBA', 'PTPP', 'PWON', 'SCMA', 
+        'SMGR', 'SMRA', 'SRIL', 'TBIG', 'TKIM', 
+        'TLKM', 'TOWR', 'UNTR', 'UNVR', 'WIKA'
     ]
 
     let from = 1420088400
